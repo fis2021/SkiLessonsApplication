@@ -1,12 +1,17 @@
 package sample.Controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+
+import java.io.IOException;
 
 
 public class LoginController {
@@ -19,6 +24,10 @@ public class LoginController {
     private TextField usernameTextField;
     @FXML
     private PasswordField passwordField;
+    @FXML
+    private Button registerButton;
+    @FXML
+    private AnchorPane openregisterpane;
 
 
     public void loginButtonOnAction(ActionEvent event){
@@ -42,6 +51,12 @@ public class LoginController {
         stage.close();
     }
 
+    @FXML
+    public void registerButtonOnAction(ActionEvent event) throws IOException {
+
+        AnchorPane regpane= FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+        openregisterpane.getChildren().setAll(regpane);
+    }
     public void validateLogin(){
 
 
