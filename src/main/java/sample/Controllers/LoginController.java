@@ -2,6 +2,8 @@ package sample.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -12,6 +14,13 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
+import java.util.Objects;
+
+import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.objects.ObjectRepository;
+import sample.services.UserService;
+import sample.users.User;
+
 
 
 public class LoginController {
@@ -27,15 +36,45 @@ public class LoginController {
     @FXML
     private Button registerButton;
     @FXML
+    private Button loginButton;
+    @FXML
     private AnchorPane openregisterpane;
+    @FXML
+    private AnchorPane openClientInterface;
+    @FXML
+    private AnchorPane openInstructorInterface;
 
 
-    public void loginButtonOnAction(ActionEvent event){
+    @FXML
+    public void loginButtonOnAction(ActionEvent event) throws IOException{
         String username=usernameTextField.getText();
         String password=passwordField.getText();
+
+
         loginMessageLabel.setVisible(true);
         if(username!=null && password!=null){
-            validateLogin();
+            int k;
+            k=UserService.validateLogin(username,password);
+            if(k!=0)
+            {
+                if(k==1){
+
+                    Stage stage;
+                    Parent root;
+                    stage = (Stage) loginButton.getScene().getWindow();
+                    root=FXMLLoader.load(getClass().getClassLoader().getResource("instructorhomepage.fxml"));
+
+                    stage.setScene(new Scene(root, 1127, 680));
+                    stage.show();
+                }
+                if(k==2){
+                    //open interface for clients
+                }
+
+            }
+            else{
+                loginMessageLabel.setText("Please try again!");
+            }
         }
         else{
 
@@ -57,8 +96,5 @@ public class LoginController {
         AnchorPane regpane= FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
         openregisterpane.getChildren().setAll(regpane);
     }
-    public void validateLogin(){
 
-
-    }
 }
