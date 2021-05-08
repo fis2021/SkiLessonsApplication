@@ -65,20 +65,25 @@ public class UserService {
         }
     }
 
-    public static void modifyUserInfo(String name, String password, String p, String d, String m){
+    public static int modifyUserInfo(String name, String password, String p, String d, String m){
         for (User user : userRepository.find()){
             if(Objects.equals(name,user.getUsername()))
             {
                 String pass=encodePassword(name,password);
-                if(Objects.equals(pass,password))
+                if(Objects.equals(pass,user.getPassword()))
                 {
+                    //user.setUsername(name);
+                    //user.setPassword(pass);
                     user.setPrice(p);
                     user.setMountain(m);
                     user.setDescription(d);
+                    userRepository.update(user);
+                    return 1;
 
                 }
+
             }
-        }
+        }return 0;
 
     }
 
