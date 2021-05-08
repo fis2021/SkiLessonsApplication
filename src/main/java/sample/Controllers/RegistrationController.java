@@ -62,5 +62,8 @@ public class RegistrationController {
         AnchorPane logpane= FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
         gobacktologin.getChildren().setAll(logpane);
     }
+    public void onAction(){
+
+    }
 
 }
