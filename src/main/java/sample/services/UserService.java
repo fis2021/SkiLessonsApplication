@@ -42,15 +42,13 @@ public class UserService {
 
             if (Objects.equals(user.getPassword(),pass))
             {
-                if(Objects.equals(user.getRole(),"instructor")){
+                if(Objects.equals(user.getRole(),"Instructor")){
                     return 1;
 
                 }
-                if(Objects.equals(user.getRole(),"client")){
+                if(Objects.equals(user.getRole(),"Client")){
                     return 2;
                 }
-
-             return 1;
             }
            }
         }

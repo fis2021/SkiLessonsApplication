@@ -58,7 +58,7 @@ public class LoginController {
             if(k!=0)
             {
                 if(k==1){
-
+                    //open interface for instructors
                     Stage stage;
                     Parent root;
                     stage = (Stage) loginButton.getScene().getWindow();
@@ -69,6 +69,13 @@ public class LoginController {
                 }
                 if(k==2){
                     //open interface for clients
+                    Stage stage;
+                    Parent root;
+                    stage = (Stage) loginButton.getScene().getWindow();
+                    root=FXMLLoader.load(getClass().getClassLoader().getResource("clienthomepage.fxml"));
+
+                    stage.setScene(new Scene(root, 1127, 680));
+                    stage.show();
                 }
 
             }
