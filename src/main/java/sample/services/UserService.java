@@ -30,7 +30,7 @@ public class UserService {
 
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
-        userRepository.insert(new User(username, encodePassword(username, password), role));
+        userRepository.insert(new User(username, encodePassword(username, password), role,"","",""));
     }
 
 
@@ -63,6 +63,23 @@ public class UserService {
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException(username);
         }
+    }
+
+    public static void modifyUserInfo(String name, String password, String p, String d, String m){
+        for (User user : userRepository.find()){
+            if(Objects.equals(name,user.getUsername()))
+            {
+                String pass=encodePassword(name,password);
+                if(Objects.equals(pass,password))
+                {
+                    user.setPrice(p);
+                    user.setMountain(m);
+                    user.setDescription(d);
+
+                }
+            }
+        }
+
     }
 
 
