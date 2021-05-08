@@ -1,4 +1,4 @@
-package sample.Controllers;
+package sample.Controllers.Instructor;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

@@ -12,6 +12,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
+import javafx.collections.ObservableList;
+
+
 import static sample.services.FileSistemService.getPathToFile;
 
 public class UserService {
@@ -31,6 +34,36 @@ public class UserService {
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
         userRepository.insert(new User(username, encodePassword(username, password), role,"","",""));
+    }
+
+    public static void getInstructors(ObservableList<String> names){
+        try{
+            for (User user : userRepository.find()){
+                if(Objects.equals("Instructor",user.getRole())){
+                    names.add(user.getUsername());
+
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static String returnsDescription(String name){
+        for(User user: userRepository.find()){
+            if(Objects.equals(user.getUsername(),name)){
+                return user.getDescription();
+            }
+        }
+        return null;
+    }
+    public static String returnsPrice(String name){
+        for(User user: userRepository.find()){
+            if(Objects.equals(user.getUsername(),name)){
+                return user.getPrice();
+            }
+        }
+        return null;
     }
 
 
