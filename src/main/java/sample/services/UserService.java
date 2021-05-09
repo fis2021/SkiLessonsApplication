@@ -65,6 +65,14 @@ public class UserService {
         }
         return null;
     }
+    public static String returnsMountain(String name){
+        for(User user: userRepository.find()){
+            if(Objects.equals(user.getUsername(),name)){
+                return user.getMountain();
+            }
+        }
+        return null;
+    }
 
 
     public static int validateLogin(String username, String password) {
