@@ -20,6 +20,7 @@ import static sample.services.FileSistemService.getPathToFile;
 public class UserService {
 
 
+
     private static ObjectRepository<User> userRepository;
 
     public static void initDatabase() {
@@ -41,6 +42,20 @@ public class UserService {
             for (User user : userRepository.find()){
                 if(Objects.equals("Instructor",user.getRole())){
                     names.add(user.getUsername());
+
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void getPrices(ObservableList<String> prices){
+        try{
+            for (User user : userRepository.find()){
+                if(Objects.equals("Instructor",user.getRole())){
+                    prices.add(user.getPrice()+" ron");
 
                 }
             }
