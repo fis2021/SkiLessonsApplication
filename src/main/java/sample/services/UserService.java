@@ -157,7 +157,7 @@ public class UserService {
             if(Objects.equals(name,user.getUsername()))
             {
 
-                    user.setReview(review+" ");
+                    user.setReview(user.getReview()+" "+review+" ");
                     userRepository.update(user);
 
 
