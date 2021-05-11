@@ -12,14 +12,16 @@ public class User {
     private String price;
     private String mountain;
     private String description;
+    private String review;
 
-    public User(String username, String password, String role, String price, String mountain, String description) {
+    public User(String username, String password, String role, String price, String mountain, String description, String review) {
         this.username = username;
         this.password = password;
         this.role = role;
         this.price=price;
         this.mountain=mountain;
         this.description=description;
+        this.review=review;
     }
 public User(){}
 
@@ -63,6 +65,10 @@ public User(){}
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getReview(){return review;}
+
+    public void setReview(String review){this.review=review;}
 
     @Override
     public boolean equals(Object o) {

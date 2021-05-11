@@ -34,7 +34,7 @@ public class UserService {
 
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
-        userRepository.insert(new User(username, encodePassword(username, password), role,"","",""));
+        userRepository.insert(new User(username, encodePassword(username, password), role,"","","",""));
     }
 
     public static void getInstructors(ObservableList<String> names){
@@ -51,6 +51,7 @@ public class UserService {
     }
 
 
+
     public static void getPrices(ObservableList<String> prices){
         try{
             for (User user : userRepository.find()){
@@ -64,6 +65,7 @@ public class UserService {
         }
     }
 
+
     public static String returnsDescription(String name){
         for(User user: userRepository.find()){
             if(Objects.equals(user.getUsername(),name)){
@@ -71,6 +73,15 @@ public class UserService {
             }
         }
         return null;
+    }
+
+    public static String returnsReview(String name){
+        for(User user: userRepository.find()){
+            if(Objects.equals(user.getUsername(),name)){
+                return user.getReview();
+            }
+        }
+        return "no reviews yet";
     }
     public static String returnsPrice(String name){
         for(User user: userRepository.find()){
@@ -138,6 +149,20 @@ public class UserService {
 
             }
         }return 0;
+
+    }
+
+    public static void modifyUserReview(String name, String review){
+        for (User user : userRepository.find()){
+            if(Objects.equals(name,user.getUsername()))
+            {
+
+                    user.setReview(review+" ");
+                    userRepository.update(user);
+
+
+            }
+        }
 
     }
 
