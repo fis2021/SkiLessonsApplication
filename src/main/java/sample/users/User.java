@@ -88,7 +88,7 @@ public User(){}
     public void setReview(String review){this.review=review;}
 
 
-    public void setProgrmare(String progrmare){this.progrmare=this.progrmare+progrmare;}
+    public void setProgrmare(String progrmare){this.progrmare=progrmare;}
 
     @Override
     public boolean equals(Object o) {

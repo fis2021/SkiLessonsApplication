@@ -17,31 +17,36 @@
             <Image url="@../../images/i.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="check" layoutX="277.0" layoutY="131.0" mnemonicParsing="false" style="-fx-background-color: F06718;" text="CHECK" textFill="#f8f8f8" visible="false">
+      <Button fx:id="check" layoutX="277.0" layoutY="131.0" mnemonicParsing="false" onAction="#checkButtonOnAction" style="-fx-background-color: F06718;" text="CHECK" textFill="#f8f8f8">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Label fx:id="instr1" layoutX="176.0" layoutY="89.0" text="Enter the name and then press check" textFill="#f06718" visible="false">
+      <Label fx:id="instr1" layoutX="176.0" layoutY="89.0" text="Enter the name and then press check" textFill="#f06718">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="username1" layoutX="240.0" layoutY="200.0" promptText="Username" visible="false" />
+      <TextField fx:id="username1" layoutX="240.0" layoutY="200.0" promptText="Username" />
       <Label fx:id="wrongu" layoutX="214.0" layoutY="265.0" text="Wrong username try again" textFill="#f06718" visible="false">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ComboBox layoutX="351.0" layoutY="119.0" prefWidth="150.0" promptText="Accept/Decline" />
-      <TextField layoutX="153.0" layoutY="119.0" prefHeight="25.0" prefWidth="149.0" promptText="User you want to repond" />
-      <ListView layoutX="138.0" layoutY="225.0" prefHeight="241.0" prefWidth="401.0" />
-      <Button fx:id="check1" layoutX="296.0" layoutY="527.0" mnemonicParsing="false" style="-fx-background-color: F06718;" text="SUBMIT" textFill="#f8f8f8">
+      <ComboBox fx:id="acept" layoutX="351.0" layoutY="154.0" prefWidth="150.0" promptText="Accept/Decline" visible="false" />
+      <TextField fx:id="client" layoutX="150.0" layoutY="154.0" prefHeight="25.0" prefWidth="149.0" promptText="User you want to repond" visible="false" />
+      <Button fx:id="submit" layoutX="296.0" layoutY="527.0" mnemonicParsing="false" onAction="#submitButtonOnAction" style="-fx-background-color: F06718;" text="SUBMIT" textFill="#f8f8f8" visible="false">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Label fx:id="wrongu1" layoutX="237.0" layoutY="474.0" text="Wrong username try again" textFill="#f06718">
+      <Label fx:id="wrongu1" layoutX="237.0" layoutY="474.0" text="Wrong username try again" textFill="#f06718" visible="false">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <ListView fx:id="cereri" layoutX="147.0" layoutY="206.0" prefHeight="298.0" prefWidth="412.0" visible="false" />
+      <Label fx:id="succes" layoutX="285.0" layoutY="584.0" prefHeight="25.0" prefWidth="106.0" text="Answer sent" textFill="#f06718" visible="false">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

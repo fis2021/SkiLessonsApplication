@@ -70,6 +70,8 @@ public class UserService {
             }
     }
 
+
+
     public static int checkUser(String nume){
         for(User user: userRepository.find())
             if(Objects.equals(user.getUsername(),nume)) {
@@ -82,6 +84,14 @@ public class UserService {
         for(User user: userRepository.find())
             if(Objects.equals(user.getUsername(),nume)){
                 user.setStatus(s);
+                userRepository.update(user);
+
+            }
+    }
+    public static void deleteProgramare(String nume) {
+        for (User user : userRepository.find())
+            if (Objects.equals(user.getUsername(), nume)) {
+                user.setProgrmare("");
                 userRepository.update(user);
 
             }
@@ -121,6 +131,15 @@ public class UserService {
     }
 
     */
+
+    public static String returnsProgramare(String name){
+        for(User user: userRepository.find()){
+            if(Objects.equals(user.getUsername(),name)&&user.getProgramare().length()!=0){
+                return user.getProgramare();
+            }
+        }
+        return "no requests yet";
+    }
     public static String returnsReviews(String name){
         for(User user: userRepository.find()){
             if(Objects.equals(user.getUsername(),name)&&user.getReview().length()!=0){
