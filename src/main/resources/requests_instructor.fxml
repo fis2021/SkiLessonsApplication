@@ -1,16 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="680.0" prefWidth="675.0" style="-fx-background-color: #c2d3c8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Instructor.InstructorRequestsController">
+<AnchorPane prefHeight="680.0" prefWidth="675.0" style="-fx-background-color: #c2d3c8;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Instructor.InstructorRequestsController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/i.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="check" layoutX="277.0" layoutY="131.0" mnemonicParsing="false" style="-fx-background-color: F06718;" text="CHECK" textFill="#f8f8f8" visible="false">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Label fx:id="instr1" layoutX="176.0" layoutY="89.0" text="Enter the name and then press check" textFill="#f06718" visible="false">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="username1" layoutX="240.0" layoutY="200.0" promptText="Username" visible="false" />
+      <Label fx:id="wrongu" layoutX="214.0" layoutY="265.0" text="Wrong username try again" textFill="#f06718" visible="false">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="351.0" layoutY="119.0" prefWidth="150.0" promptText="Accept/Decline" />
+      <TextField layoutX="153.0" layoutY="119.0" prefHeight="25.0" prefWidth="149.0" promptText="User you want to repond" />
+      <ListView layoutX="138.0" layoutY="225.0" prefHeight="241.0" prefWidth="401.0" />
+      <Button fx:id="check1" layoutX="296.0" layoutY="527.0" mnemonicParsing="false" style="-fx-background-color: F06718;" text="SUBMIT" textFill="#f8f8f8">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Label fx:id="wrongu1" layoutX="237.0" layoutY="474.0" text="Wrong username try again" textFill="#f06718">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
