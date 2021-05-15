@@ -34,7 +34,7 @@ public class UserService {
 
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
-        userRepository.insert(new User(username, encodePassword(username, password), role,"","","",""));
+        userRepository.insert(new User(username, encodePassword(username, password), role,"","","","","",-1));
     }
 
     public static void getInstructors(ObservableList<String> names){
@@ -50,6 +50,52 @@ public class UserService {
         }
     }
 
+    public static int checkStatus(String nume){
+        for(User user: userRepository.find()) {
+            if(Objects.equals(user.getUsername(),nume)){
+                return user.getStatus();
+            }
+        }
+        return -2;
+    }
+
+
+    public static void addProgramare(String nume,String programare){
+        for(User user: userRepository.find())
+            if(Objects.equals(user.getUsername(),nume)) {
+                user.setProgrmare(programare);
+                user.setStatus(0);
+                userRepository.update(user);
+
+            }
+    }
+
+
+
+    public static int checkUser(String nume){
+        for(User user: userRepository.find())
+            if(Objects.equals(user.getUsername(),nume)) {
+               return 1;
+
+            }
+        return 0;
+    }
+    public static void setUserStatus(String nume,int s){
+        for(User user: userRepository.find())
+            if(Objects.equals(user.getUsername(),nume)){
+                user.setStatus(s);
+                userRepository.update(user);
+
+            }
+    }
+    public static void deleteProgramare(String nume) {
+        for (User user : userRepository.find())
+            if (Objects.equals(user.getUsername(), nume)) {
+                user.setProgrmare("");
+                userRepository.update(user);
+
+            }
+    }
 
 
     public static void getPrices(ObservableList<String> prices){
@@ -75,7 +121,7 @@ public class UserService {
         return null;
     }
 
-    public static String returnsReview(String name){
+   /* public static String returnsReview(String name){
         for(User user: userRepository.find()){
             if(Objects.equals(user.getUsername(),name)){
                 return user.getReview();
@@ -83,6 +129,30 @@ public class UserService {
         }
         return "no reviews yet";
     }
+
+    */
+
+    public static String returnsProgramare(String name){
+        for(User user: userRepository.find()){
+            if(Objects.equals(user.getUsername(),name)&&user.getProgramare().length()!=0){
+                return user.getProgramare();
+            }
+        }
+        return "no requests yet";
+    }
+    public static String returnsReviews(String name){
+        for(User user: userRepository.find()){
+            if(Objects.equals(user.getUsername(),name)&&user.getReview().length()!=0){
+                return user.getReview();
+            }
+        }
+        return "no reviews yet";
+    }
+
+
+
+
+
     public static String returnsPrice(String name){
         for(User user: userRepository.find()){
             if(Objects.equals(user.getUsername(),name)){
@@ -157,7 +227,7 @@ public class UserService {
             if(Objects.equals(name,user.getUsername()))
             {
 
-                    user.setReview(user.getReview()+" "+review+" ");
+                    user.setReview(user.getReview()+" "+review+"\n");
                     userRepository.update(user);
 
 

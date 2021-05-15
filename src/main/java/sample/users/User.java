@@ -1,8 +1,8 @@
 package sample.users;
 
+
 import org.dizitart.no2.objects.Id;
 
-import java.sql.Connection;
 
 public class User {
     @Id
@@ -13,8 +13,12 @@ public class User {
     private String mountain;
     private String description;
     private String review;
+    private String progrmare;
+    private int status;
 
-    public User(String username, String password, String role, String price, String mountain, String description, String review) {
+
+
+    public User(String username, String password, String role, String price, String mountain, String description, String review,String programare,int status) {
         this.username = username;
         this.password = password;
         this.role = role;
@@ -22,6 +26,9 @@ public class User {
         this.mountain=mountain;
         this.description=description;
         this.review=review;
+        this.progrmare=programare;
+        this.status=status;
+
     }
 public User(){}
 
@@ -29,6 +36,10 @@ public User(){}
     public String getUsername() {
         return username;
     }
+
+    public int getStatus(){ return status;}
+
+    public void setStatus(int status){ this.status=status;}
 
     public void setUsername(String username) {
         this.username = username;
@@ -66,9 +77,18 @@ public User(){}
         this.description = description;
     }
 
+    public String getProgramare(){
+        return progrmare;
+    }
+
+
+
     public String getReview(){return review;}
 
     public void setReview(String review){this.review=review;}
+
+
+    public void setProgrmare(String progrmare){this.progrmare=progrmare;}
 
     @Override
     public boolean equals(Object o) {
