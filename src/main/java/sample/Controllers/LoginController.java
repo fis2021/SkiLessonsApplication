@@ -18,6 +18,7 @@ import java.util.Objects;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.junit.Test;
 import sample.services.UserService;
 import sample.users.User;
 

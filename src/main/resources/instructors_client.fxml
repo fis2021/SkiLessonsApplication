@@ -27,9 +27,9 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Text layoutX="3.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You can see more about an instructor by selecting one from the list below:">
+      <Text layoutX="23.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You can see more about an instructor by selecting one from the list below:">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Text>
       <Button layoutX="468.0" layoutY="317.0" mnemonicParsing="false" onAction="#seeOnAction" prefHeight="38.0" prefWidth="113.0" style="-fx-background-color: #e7c1ab;" text="SEE INFO" textFill="#141414">
@@ -37,20 +37,20 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Button>
-      <TextArea fx:id="textd" layoutX="38.0" layoutY="465.0" prefHeight="84.0" prefWidth="200.0" />
-      <TextArea fx:id="textp" layoutX="468.0" layoutY="465.0" prefHeight="84.0" prefWidth="200.0" />
-      <TextArea fx:id="textm" layoutX="253.0" layoutY="465.0" prefHeight="84.0" prefWidth="200.0" />
+      <TextArea fx:id="textd" layoutX="23.0" layoutY="465.0" prefHeight="84.0" prefWidth="200.0" />
+      <TextArea fx:id="textp" layoutX="453.0" layoutY="465.0" prefHeight="84.0" prefWidth="200.0" />
+      <TextArea fx:id="textm" layoutX="238.0" layoutY="465.0" prefHeight="84.0" prefWidth="200.0" />
       <Text layoutX="59.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal description">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Text layoutX="317.0" layoutY="459.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mountain">
+      <Text layoutX="304.0" layoutY="459.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mountain">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Text layoutX="531.0" layoutY="459.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price/hour">
+      <Text layoutX="516.0" layoutY="459.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price/hour">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
